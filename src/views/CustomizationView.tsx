@@ -14,7 +14,7 @@ import {
   Lock
 } from 'lucide-react';
 import { Establishment } from '../types';
-import { cleanDomain, validateDomain, formatDisplayDomainUrl } from '../utils/domain';
+import { cleanDomain, validateDomain, formatDisplayDomainUrl, getEstablishmentPaymentUrl } from '../utils/domain';
 
 interface CustomizationViewProps {
   establishment?: Establishment | null;
@@ -371,13 +371,16 @@ export const CustomizationView: React.FC<CustomizationViewProps> = ({
             <div className="w-28 h-1 bg-slate-700 rounded-full mx-auto mt-2" />
           </div>
 
-          <button
-            onClick={() => onOpenPublicPage(establishment.slug)}
+          <a
+            href={getEstablishmentPaymentUrl(establishment, establishment.slug)}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-3 text-xs text-[#008479] hover:text-[#009E91] font-semibold flex items-center gap-1.5"
+            title="Abrir página em nova aba"
           >
             <Eye className="w-3.5 h-3.5" />
-            Abrir página em tela cheia no navegador
-          </button>
+            Abrir página em nova aba no navegador
+          </a>
         </div>
       </div>
     </div>

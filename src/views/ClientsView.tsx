@@ -357,13 +357,15 @@ export const ClientsView: React.FC<ClientsViewProps> = ({
                       <Copy className="w-3.5 h-3.5" />
                     )}
                   </button>
-                  <button
-                    onClick={() => onOpenPublicPage(est.slug)}
-                    className="p-1.5 text-white bg-[#00B8A9] hover:bg-[#009E91] rounded-md"
-                    title="Abrir página pública"
+                  <a
+                    href={getEstablishmentPaymentUrl(est, est.slug)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1.5 text-white bg-[#00B8A9] hover:bg-[#009E91] rounded-md inline-flex items-center justify-center"
+                    title="Abrir página pública em nova aba"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

@@ -426,18 +426,15 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                   >
                     {showDnsGuide ? 'Ocultar Instruções DNS' : 'Ver Registros DNS'}
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (onOpenPublicPage) {
-                        onOpenPublicPage(previewSlug);
-                      }
-                    }}
+                  <a
+                    href={getEstablishmentPaymentUrl(activeEst, previewSlug)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-white bg-emerald-700 hover:bg-emerald-800 rounded-lg transition-colors"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
-                    Abrir Página Pix
-                  </button>
+                    Abrir em Nova Aba
+                  </a>
                 </div>
               </div>
             )}
@@ -493,17 +490,16 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                       </>
                     )}
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (onOpenPublicPage) onOpenPublicPage(previewSlug);
-                    }}
+                  <a
+                    href={displayCustomUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-2 py-1 text-[11px] bg-[#00B8A9] hover:bg-[#009E91] rounded text-white font-semibold flex items-center gap-1"
-                    title="Testar Link de Pagamento"
+                    title="Testar Link de Pagamento em nova aba"
                   >
                     <ExternalLink className="w-3 h-3" />
                     Testar
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -662,18 +658,16 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                         )}
                       </td>
                       <td className="p-3 text-right">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setSelectedEstId(est.id);
-                            setDomainInput(est.custom_domain || '');
-                            if (onOpenPublicPage) onOpenPublicPage(sampleSlug);
-                          }}
+                        <a
+                          href={fullUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="px-2.5 py-1 text-[11px] font-semibold text-[#00B8A9] hover:bg-[#E6F8F6] rounded inline-flex items-center gap-1"
+                          title="Abrir em nova aba"
                         >
                           <ExternalLink className="w-3 h-3" />
                           Testar
-                        </button>
+                        </a>
                       </td>
                     </tr>
                   );

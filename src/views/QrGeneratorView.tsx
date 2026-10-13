@@ -431,13 +431,16 @@ export const QrGeneratorView: React.FC<QrGeneratorViewProps> = ({
               </button>
 
               {currentEst && (
-                <button
-                  onClick={() => onOpenPublicPage(currentEst.slug)}
+                <a
+                  href={getEstablishmentPaymentUrl(currentEst, initialLink?.slug || currentEst.slug)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-1.5 py-2 px-3 bg-[#E6F8F6] hover:bg-[#c9f1ec] text-[#008479] text-xs font-semibold rounded-lg transition-colors"
+                  title="Abrir página em nova aba"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   Abrir Página
-                </button>
+                </a>
               )}
             </div>
           </div>

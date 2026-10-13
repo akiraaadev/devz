@@ -253,13 +253,15 @@ export const PaymentLinksView: React.FC<PaymentLinksViewProps> = ({
                         <Copy className="w-3.5 h-3.5" />
                       )}
                     </button>
-                    <button
-                      onClick={() => onOpenPublicPage(link.slug)}
+                    <a
+                      href={getEstablishmentPaymentUrl(est, link.slug)}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-1 text-[#00B8A9] hover:text-[#008479]"
-                      title="Testar link público"
+                      title="Abrir link do Pix em nova aba"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
-                    </button>
+                    </a>
                   </div>
                 </div>
 
